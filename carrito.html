@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>JR IMPORTACIONES</title>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
+
+<script src="js/jquery-1.4.1.min.js" type="text/javascript"></script>
+<script src="js/jquery.jcarousel.pack.js" type="text/javascript"></script>
+<script src="js/jquery.slide.js" type="text/javascript"></script>
+<script src="js/jquery-func.js" type="text/javascript"></script>
+<script src="js/productos.js" type="text/javascript"></script>
+
+
+
+</head>
+<body>
+
+<div id="top">
+  <div class="shell">
+    
+    <div id="header">
+     
+      <div id="navigation">
+	  
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="#">Soporte</a></li>
+		  <li><a href="tienda.html">Tienda</a></li>
+          <li><a href="carrito.html">Carrito</a></li> 
+		  <li><a href="#">Cuenta</a></li> 
+          <li class="last"><a href="#">Contacto</a></li>
+        </ul>
+      </div>
+    </div>
+   
+    <div id="slider">
+      <div id="slider-holder">
+        <ul>
+          <li><a href="#"><img src="css/images/slide1.jpg" alt="" /></a></li>
+          <li><a href="#"><img src="css/images/slide2.jpg" alt="" /></a></li>
+          <li><a href="#"><img src="css/images/slide3.jpg" alt="" /></a></li>
+          <li><a href="#"><img src="css/images/slide4.jpg" alt="" /></a></li>
+          
+        </ul>
+      </div>
+      <div id="slider-nav"> <a href="#" class="prev">Previous</a> <a href="#" class="next">Next</a> </div>
+    </div>
+   
+  </div>
+</div>
+
+<div id="main">
+  <div class="shell">
+   
+    <div class="options">
+      <div class="search">
+        <form action="#" method="post">
+          <span class="field">
+          <input type="text" class="blink" value="BUSCAR" title="BUSCAR" />
+          </span>
+          <input type="text" class="search-submit" value="GO" />
+        </form>
+      </div>
+      <span class="left"><a href="#">Busqueda Avanzada</a></span>
+
+    </div>
+	
+		<div class="separator"></div>
+        <h1 class="titulo">PRODUCTOS DEL CARRITO</h1>
+		
+		<div id="carrito">
+    
+	</div>
+
+	<div id="acciones">
+    <button id="comprar">Comprar</button>
+    <button id="vaciar">Vaciar carrito</button>
+	</div>
+
+	<div id="importe">
+    
+	</div>
+     
+       <div class="separator"></div>
+     
+	  
+	    <div class="separator"></div>
+       
+        <div class="brands">
+          <h3>Representamos a:</h3>
+          <div class="logos">
+			<a href="#"><img src="css/images/logo1.png" alt="imagen1" /></a>
+			<a href="#"><img src="css/images/logo2.png" alt="imagen2" /></a>
+			<a href="#"><img src="css/images/logo3.png" alt="imagen3" /></a> 
+			<a href="#"><img src="css/images/logo4.gif" alt="imagen4" /></a>
+			<a href="#"><img src="css/images/logo5.gif" alt="imagen5" /></a>
+			<a href="#"><img src="css/images/logo6.png" alt="imagen6" /></a>
+			<a href="#"><img src="css/images/logo7.png" alt="imagen7" /></a>
+			<a href="#"><img src="css/images/logo8.png" alt="imagen8" /></a>
+			<a href="#"><img src="css/images/logo9.png" alt="imagen9" /></a>
+			<a href="#"><img src="css/images/logo10.png" alt="imagen10" /></a>			
+			<a href="#"><img src="css/images/logo11.png" alt="imagen11" /></a>
+			<a href="#"><img src="css/images/logo12.png" alt="imagen12" /></a>
+			  </div>
+		  
+        </div>
+       
+        <div id="footer">
+		<div  style="text-align: center; color: black;">Práctico Integrador Web II - Diseñado por Julian Rios - 2024</div>
+        </div>
+        
+      </div>
+      
+    </div>
+   
+  </div>
+</div>
+<script>
+	 // Obtener el carrito de la URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const carritoJson = urlParams.get('carrito');
+
+        // Convertir la cadena JSON del carrito a un array
+        const carrito = JSON.parse(carritoJson);
+
+        // Función para mostrar los productos en el carrito
+        function mostrarCarrito() {
+            const carritoDiv = document.getElementById('carrito');
+            carritoDiv.innerHTML = ''; // Limpiar el contenido anterior
+
+            if (carrito.length === 0) {
+                carritoDiv.innerHTML = '<p>No hay productos en el carrito.</p>';
+            } else {
+                const listaProductos = document.createElement('ul');
+                carrito.forEach(producto => {
+                    const itemProducto = document.createElement('li');
+                    itemProducto.textContent = `${producto.title} - Precio: $${producto.price}`;
+                    listaProductos.appendChild(itemProducto);
+                });
+                carritoDiv.appendChild(listaProductos);
+            }
+        }
+
+        // Llamar a la función para mostrar el carrito al cargar la página
+        mostrarCarrito();
+</script>
+
+</body>
+</html>
