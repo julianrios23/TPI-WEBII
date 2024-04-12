@@ -29,7 +29,7 @@
 		  <li><a href="tienda.html">Tienda</a></li>
           <li><a href="carrito.html">Carrito</a></li> 
 		  <li><a href="#">Cuenta</a></li> 
-          <li class="last"><a href="#">Contacto</a></li>
+          <li><a href="contacto.html">Contacto</a></li> 
         </ul>
       </div>
     </div>
@@ -117,33 +117,7 @@
   </div>
 </div>
 <script>
-	 // Obtener el carrito de la URL
-        const urlParams = new URLSearchParams(window.location.search);
-        const carritoJson = urlParams.get('carrito');
-
-        // Convertir la cadena JSON del carrito a un array
-        const carrito = JSON.parse(carritoJson);
-
-        // Función para mostrar los productos en el carrito
-        function mostrarCarrito() {
-            const carritoDiv = document.getElementById('carrito');
-            carritoDiv.innerHTML = ''; // Limpiar el contenido anterior
-
-            if (carrito.length === 0) {
-                carritoDiv.innerHTML = '<p>No hay productos en el carrito.</p>';
-            } else {
-                const listaProductos = document.createElement('ul');
-                carrito.forEach(producto => {
-                    const itemProducto = document.createElement('li');
-                    itemProducto.textContent = `${producto.title} - Precio: $${producto.price}`;
-                    listaProductos.appendChild(itemProducto);
-                });
-                carritoDiv.appendChild(listaProductos);
-            }
-        }
-
-        // Llamar a la función para mostrar el carrito al cargar la página
-        mostrarCarrito();
+	 
 </script>
 
 </body>

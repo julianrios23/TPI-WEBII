@@ -1,4 +1,6 @@
-document.addEventListener("DOMContentLoaded", function() {
+
+
+    document.addEventListener("DOMContentLoaded", function() {
     fetch('https://fakestoreapi.com/products')
         .then(response => {
             if (!response.ok) {
@@ -21,12 +23,15 @@ document.addEventListener("DOMContentLoaded", function() {
                         <p><strong>Categoría:</strong> ${producto.category}</p>
                         <p><strong>Precio:</strong> $${producto.price}</p>
                         <a href="#" class="add-to-cart">
-                            <img src="css/images/cart.gif" alt="carrito">
-                            Agregar al carrito
-                        </a>
+						<button onclick="agregarAlCarrito('Nombre del Producto', 100)">Agregar al Carrito</button>
+						</a>
+
                     </div>
                 `;
                 productosDiv.appendChild(productoElement);
+				
+				
+
 
                 // Agregar evento mouseover para mostrar la descripción completa
                 productoElement.querySelector('.info-producto').addEventListener("mouseover", function() {
@@ -41,7 +46,13 @@ document.addEventListener("DOMContentLoaded", function() {
                 });
             });
         })
+		
+		
         .catch(error => {
             console.error('Error:', error);
         });
 });
+    
+    
+    
+

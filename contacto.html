@@ -4,13 +4,96 @@
 <title>JR IMPORTACIONES</title>
 <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
+<link rel="stylesheet" href="css/estiloForm.css" type="text/css" media="all" />
 
 <script src="js/jquery-1.4.1.min.js" type="text/javascript"></script>
 <script src="js/jquery.jcarousel.pack.js" type="text/javascript"></script>
 <script src="js/jquery.slide.js" type="text/javascript"></script>
 <script src="js/jquery-func.js" type="text/javascript"></script>
-<script src="js/productos.js" type="text/javascript"></script>
 
+<style>
+	body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+}
+
+.contenedor {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+  width: 1000px;
+}
+
+.formulario {
+  width: 700px;
+  background-color: #808080;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.formulario h2 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.formulario label {
+  display: block;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.formulario input,
+.formulario textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.formulario textarea {
+  height: 100px;
+}
+
+.formulario button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background-color: green;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.formulario button:hover {
+  background-color: red;
+}
+ .formulario {
+      background-color:  #C0C0C0; 
+      padding: 20px;
+      border-radius: 10px;
+}
+#mensajeEnviado {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 255, 0, 0.7);
+  padding: 20px 40px;
+  border-radius: 5px;
+  z-index: 999;
+  font-size: 20px; 
+}
+
+
+
+</style>
 
 
 
@@ -30,7 +113,7 @@
 		  <li><a href="tienda.html">Tienda</a></li>
           <li><a href="carrito.html">Carrito</a></li> 
 		  <li><a href="#">Cuenta</a></li> 
-          <li><a href="contacto.html">Contacto</a></li> 
+		 <li><a href="contacto.html">Contacto</a></li> 
         </ul>
       </div>
     </div>
@@ -54,31 +137,49 @@
 <div id="main">
   <div class="shell">
    
-    <div class="options">
+   <div class="options">
       <div class="search">
         <form action="#" method="post">
           <span class="field">
           <input type="text" class="blink" value="BUSCAR" title="BUSCAR" />
           </span>
-          <input type="text" class="search-submit" value="GO" />
+          
         </form>
       </div>
       <span class="left"><a href="#">Busqueda Avanzada</a></span>
-      <div class="right"> <span class="cart"> <a href="#" class="cart-ico">&nbsp;</a> <strong>$0.00</strong> </span> <span class="left more-links"> <a href="#">COMPRAR</a> <a href="#">DETALLES</a> </span> </div>
-    </div>
-  
-    <div id="content">
-     
-      <div class="tabs">
-		<ul>
-			<li><a href="#" class="active" id="destacados-tab"><span>Destacados</span></a></li>
-			
-		</ul>
-	</div>
+	  		
+		<div class="separator"></div>
+    
+	 <div class="contenedor">
+    <div class="formulario">
+      <h2>Formulario de Contacto</h2>
+      <form id="contactForm">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required>
+        <br>
+        <label for="email">Correo Electrónico:</label>
+        <input type="email" id="email" name="email" required>
+        <br>
+        <div class="telefono-container">
+        <label for="telefono">Teléfono: (Solo números sin espacios ni separador)</label>
 		
-      <div class="grid-container" id="productos"></div>
-	  
-	  <div class="separator"></div>
+		<input type="tel" id="telefono" name="telefono" pattern="[0-9]{9,12}" maxlength="12" required>
+		<span class="error" id="telefonoError"></span>
+        </div>
+        <br>
+        <label for="mensaje">Mensaje:</label>
+        <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+        <br>
+        <button type="submit">Enviar</button>
+		<div id="mensajeEnviado">¡Mensaje enviado correctamente!</div>
+
+      </form>
+    </div>
+  </div>
+    
+
+
+   <div class="separator"></div>
        
         <div class="brands">
           <h3>Representamos a:</h3>
@@ -110,9 +211,20 @@
   </div>
 </div>
 <script>
-	
+document.getElementById('contactForm').addEventListener('submit', function(event) {
+  event.preventDefault(); 
+ 
+  document.getElementById('mensajeEnviado').style.display = 'block';
 
-</script>
+  
+  setTimeout(function() {
+    document.getElementById('contactForm').reset();
+    document.getElementById('mensajeEnviado').style.display = 'none';
+  }, 3000); 
+});
+
+	
+</script>	
 
 </body>
 </html>
