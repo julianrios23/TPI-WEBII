@@ -1,5 +1,4 @@
 
-
     document.addEventListener("DOMContentLoaded", function() {
     fetch('https://fakestoreapi.com/products')
         .then(response => {
@@ -23,7 +22,8 @@
                         <p><strong>Categoría:</strong> ${producto.category}</p>
                         <p><strong>Precio:</strong> $${producto.price}</p>
                         <a href="#" class="add-to-cart">
-						<button onclick="agregarAlCarrito('Nombre del Producto', 100)">Agregar al Carrito</button>
+						<button onclick="agregarAlCarrito(${producto.id}, '${producto.title}', ${producto.price}, '${producto.image}')">Agregar al carrito</button>
+
 						</a>
 
                     </div>
@@ -53,6 +53,3 @@
         });
 });
     
-    
-    
-

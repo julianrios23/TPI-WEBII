@@ -125,35 +125,41 @@ h3 { font-size:15px; line-height:18px; color:#bcbcbc; text-transform: uppercase;
 
 .tabbed { min-height:420px;}
 
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 20px;
-	border-radius: 20px;
-}
+#productos {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
+            grid-gap: 20px;
+            padding: 20px;
+        }
 
-.producto {
-    border: 1px solid #ccc;
-    border-radius: 15px;
-    padding: 10px;
-    text-align: left;
-}
+        .producto {
+            border: 3px solid black;
+            border-radius: 5px;
+            padding: 10px;
+        }
 
-.imagen-producto {
-    width: 100%;
-    height: auto;
-    border-radius: 5px;
-}
+        .producto img {
+            max-width: 100%;
+            height: auto;
+        }
 
-.info-producto {
-    padding: 10px;
-}
+        .info-producto {
+            padding-top: 10px;
+        }
 
-.descripcion-corta {
-    font-size: 14px;
-    margin-bottom: 10px;
-}
+        .info-producto h2 {
+            margin-top: 0;
+            font-size: 20px;
+        }
 
+        .descripcion-corta {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .add-to-cart {
+            margin-top: 10px;
+        }
 
 /* Estilo para la grilla de inicio */
 .grid-container2 {
@@ -206,27 +212,96 @@ h3 { font-size:15px; line-height:18px; color:#bcbcbc; text-transform: uppercase;
     margin-top: 20px;
     text-align: center;
 }
-
-/*botones*/
-#comprar, #vaciar {
-    background-color: #4CAF50; /* Color de fondo verde */
+button {
+    background-color: green;
+    color: white;
     border: none;
-    color: white; /* Color del texto */
-    padding: 15px 32px; /* Espaciado interno */
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px; /* Tamaño del texto */
-    margin: 4px 2px;
+    border-radius: 10px;
+    padding: 10px 20px;
     cursor: pointer;
-    border-radius: 8px; /* Bordes redondeados */
-    transition-duration: 0.4s; /* Duración de la transición */
+}
+
+button:hover {
+    background-color: red;
+}
+.botones-container {
+    text-align: center;
+    margin-top: 30px;
+}
+button2 {
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 20px 40px;
+    cursor: pointer;
+}
+
+button2:hover {
+    background-color: red;
+}
+
+/*grid carrito*/
+  
+.grid-container3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 100px;
+}
+/* Estilos para el texto dentro de .grid-container3 */
+.grid-container3 {
+    color: black;
 }
 
 
-#comprar:hover, #vaciar:hover {
-    background-color: red; /* Color de fondo verde oscuro */
-    color: white; /* Color del texto */
+        /* Estilos para cada tarjeta de producto */
+        .producto-card {
+            display: flex;
+            align-items: center;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            padding: 30px;
+			
+            background-color: #f9f9f9;
+        }
+
+        .producto-card img {
+            width: 80px;
+            height: auto;
+            margin-right: 20px;
+            border-radius: 10px;
+        }
+
+        /* Estilos para la información del producto */
+        .producto-info {
+            flex: 1;
+			
+        }
+
+        /* Estilos para los botones de acción */
+        .acciones {
+            display: flex;
+            gap: 10px;
+        }
+
+        /* Estilos para el mensaje de carrito vacío */
+        #carrito-vacio {
+            margin-top: 20px;
+            font-style: italic;
+            font-size: 24px;
+            color: black;
 }
-/*formulario*/
+
+.total-container {
+    background-color: white;
+    color: black;
+    font-size: 20px; /* Tamaño del texto */
+    font-weight: bold; /* Grosor del texto */
+    padding: 20px; /* Espaciado interno */
+    border: 3px solid #ccc; /* Borde */
+    border-radius: 20px; /* Borde redondeado */
+    display: inline-block; /* Contenedor se ajusta al contenido */
+}
+
+
 
