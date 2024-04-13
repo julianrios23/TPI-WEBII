@@ -45,6 +45,8 @@ document.addEventListener('DOMContentLoaded', function () {
     } else {
         totalCarritoElement.textContent = `Total: $${totalCarrito.toFixed(2)}`;
     }
+	// Actualizar el valor en el elemento <strong>
+    document.getElementById('totalCarrito').textContent = totalCarrito.toFixed(2);
 }
 
 
@@ -69,11 +71,12 @@ document.addEventListener('DOMContentLoaded', function () {
         vaciarCarr(); // Aquí deberías llamar a la función vaciarCarr() en lugar de vaciarCarrito()
     }
 
-    function vaciarCarr() { // Cambié el nombre de la función para evitar conflictos de nombres
+    function vaciarCarrito() { 
         carrito = [];
         localStorage.removeItem('carrito');
         mostrarCarrito();
     }
+	
 
     mostrarCarrito();
 });

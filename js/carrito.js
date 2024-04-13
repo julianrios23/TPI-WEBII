@@ -5,6 +5,7 @@ const productosContainer = document.getElementById('productos');
 window.agregarAlCarrito = function (id, title, price, image) {
     // Obtener el contenido del carrito del localStorage
     let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+	
 
     // Verificar si el producto ya está en el carrito
     const productoExistente = carrito.find(producto => producto.id === id);
@@ -25,4 +26,5 @@ window.agregarAlCarrito = function (id, title, price, image) {
 
     // Mostrar un mensaje de confirmación
     alert('¡Producto agregado al carrito!');
+	
 };
