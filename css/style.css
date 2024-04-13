@@ -126,41 +126,34 @@ h3 { font-size:15px; line-height:18px; color:#bcbcbc; text-transform: uppercase;
 .tabbed { min-height:420px;}
 
 #productos {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
-            grid-gap: 20px;
-            padding: 20px;
-        }
-
-        .producto {
-            border: 3px solid black;
-            border-radius: 5px;
-            padding: 10px;
-        }
-
-        .producto img {
-            max-width: 100%;
-            height: auto;
-        }
-
-        .info-producto {
-            padding-top: 10px;
-        }
-
-        .info-producto h2 {
-            margin-top: 0;
-            font-size: 20px;
-        }
-
-        .descripcion-corta {
-            font-size: 14px;
-            color: #666;
-        }
-
-        .add-to-cart {
-            margin-top: 10px;
-        }
-
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
+    grid-gap: 20px;
+    padding: 20px;
+}
+.producto {
+    border: 3px solid black;
+    border-radius: 5px;
+    padding: 10px;
+}
+.producto img {
+    max-width: 100%;
+    height: auto;
+}
+.info-producto {
+    padding-top: 10px;
+}
+.info-producto h2 {
+    margin-top: 0;
+    font-size: 20px;
+}
+.descripcion-corta {
+    font-size: 14px;
+    color: #666;
+}
+.add-to-cart {
+    margin-top: 10px;
+}
 /* Estilo para la grilla de inicio */
 .grid-container2 {
   display: grid;
@@ -230,11 +223,11 @@ button:hover {
 }
 
 .botones-container {
-    display: flex; /* Usar flexbox para alinear los botones */
-    justify-content: space-between; /* Espacio uniformemente entre los botones */
+    display: flex; 
+    justify-content: center; 
     margin-top: 20px;
-	margin-left: auto;
-    margin-right: auto;
+	margin-left: 300;
+    margin-right: 300;
 }
 button2 {
     background-color: green;
@@ -256,6 +249,7 @@ button2:hover {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 100px;
+	justify-content: center;
 }
 /* Estilos para el texto dentro de .grid-container3 */
 .grid-container3 {
@@ -264,9 +258,19 @@ button2:hover {
 
 
  /* Estilos para cada tarjeta de producto */
- .producto-card {
+.producto {
+    border: 3px solid black;
+    border-radius: 20px;
+    padding: 10px;
+
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+.producto-card {
+    display: flex;
+    
+	justify-content: center;
     border: 1px solid #ccc;
     border-radius: 20px;
     padding: 30px;
