@@ -16,6 +16,7 @@
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
+  
   background-color: #f5f5f5;
 }
 
@@ -25,34 +26,41 @@
   align-items: center;
   min-height: 90vh;
   width: 1000px;
+  
 }
 
 .formulario {
-  width: 700px;
+  width: 600px; /* Reducir el ancho del formulario */
   background-color: #808080;
   padding: 20px;
   border-radius: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  justify-content: space-between;
+  margin: 0 auto; /* Centrar el formulario horizontalmente */
 }
 
 .formulario h2 {
   margin-bottom: 20px;
   text-align: center;
+  font-size: 25px;
 }
 
 .formulario label {
   display: block;
   margin-bottom: 10px;
-  color: #333;
+  color: black;
+  font-size: 15px; /* Cambiar el tamaño de la fuente de los labels */
+  width: calc(100% - 40px); /* Ajustar el ancho del label para tener un margen de 20px a cada lado */
 }
+
 
 .formulario input,
 .formulario textarea {
-  width: 100%;
+  width: calc(100% - 20px); /* Ajustar el ancho del input para tener un margen de 10px a cada lado */
   padding: 10px;
   margin-bottom: 15px;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 10px;
 }
 
 .formulario textarea {
@@ -109,11 +117,12 @@
 	  
         <ul>
           <li><a href="index.html">Início</a></li>
-          <li><a href="#">Soporte</a></li>
-		  <li><a href="tienda.html">Tienda</a></li>
+          <li><a href="tienda.html">Tienda</a></li>
           <li><a href="carrito.html">Carrito</a></li> 
-		  <li><a href="#">Cuenta</a></li> 
-		 <li><a href="contacto.html">Contacto</a></li> 
+		  <li><a href="soporte.html">Soporte</a></li>
+		  <li><a href="contacto.html">Contacto</a></li>
+		  <li><a href="login.html">Cuenta</a></li>
+          
         </ul>
       </div>
     </div>

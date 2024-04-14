@@ -9,12 +9,34 @@
 <script src="js/jquery.jcarousel.pack.js" type="text/javascript"></script>
 <script src="js/jquery.slide.js" type="text/javascript"></script>
 <script src="js/jquery-func.js" type="text/javascript"></script>
-<script src="js/trad.js" type="text/javascript"></script>
-<script src="js/mostrarCarrito.js" type="text/javascript"></script>
-<script src="js/carrito.js" type="text/javascript"></script>
-<script src="js/productos.js" type="text/javascript"></script>
+
 <style>
-	
+.contenedor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh; /* Opcional: altura del contenedor igual al 100% del viewport */
+}
+
+.contenedor img {
+    max-width: 50%; /* La imagen se ajustará automáticamente al tamaño del contenedor */
+    max-height: 50%; /* La imagen se ajustará automáticamente al tamaño del contenedor */
+}
+.contenedor2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Opcional: altura del contenedor igual al 100% del viewport */
+}
+
+.contenedor2 img {
+    max-width: 100%; /* La imagen se ajustará automáticamente al tamaño del contenedor */
+    max-height: 100%; /* La imagen se ajustará automáticamente al tamaño del contenedor */
+}
+h1 {
+    text-align: center; 
+    color: black;
+}
 
 
 </style>
@@ -73,16 +95,17 @@
       
     </div>
 
-    <div id="content">
+		 <div class="separator"></div>
+		<h1> PREGUNTAS FRECUENTES</h1>
+		
+		 <div class="separator"></div>
+		<div class="contenedor2">
+		<img src="css/images/faq2.png" alt="imagen2">
+		</div>
 
-      <div class="tabs">
-		<ul>
-			<li><a href="#" class="active" id="destacados-tab"><span>Destacados</span></a></li>
 
-		</ul>
-	</div>
 
-      <div class="grid-container" id="productos"></div>
+      
 	  
 
 

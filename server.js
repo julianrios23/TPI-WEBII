@@ -1,26 +1,21 @@
 const express = require('express');
-const fs = require('fs');
+const bodyParser = require('body-parser');
+const cors = require('cors');
 const app = express();
 const PORT = 3000;
 
-// Define la ruta para servir el archivo JSON
-app.get('D:/Tecnicatura/Web II/Integrador Julian Rios/eCommerce/datos.json', (req, res) => {
-  // Lee el archivo JSON local
-  fs.readFile('datos.json', 'utf8', (err, data) => {
-    if (err) {
-      console.error('Error al leer el archivo JSON:', err);
-      res.status(500).send('Error interno del servidor');
-      return;
-    }
+// Middleware para permitir CORS
+app.use(cors({
+  origin: 'http://localhost:3000', // Cambia esto al origen correcto de tu solicitud
+  credentials: true // Habilita el envío de cookies en la solicitud (si es necesario)
+}));
 
-    // Convierte el contenido del archivo a objeto JSON
-    const jsonData = JSON.parse(data);
-    // Envia el JSON como respuesta
-    res.json(jsonData);
-  });
-});
+// Middleware para parsear JSON en las solicitudes POST
+app.use(bodyParser.json());
+
+// Define tus rutas y lógica de manejo aquí...
 
 // Inicia el servidor
 app.listen(PORT, () => {
-  console.log(`Servidor Express escuchando en el puerto ${PORT}`);
+    console.log(`Servidor Express escuchando en el puerto ${PORT}`);
 });

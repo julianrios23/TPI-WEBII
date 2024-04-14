@@ -124,7 +124,7 @@ h3 { font-size:15px; line-height:18px; color:#bcbcbc; text-transform: uppercase;
 .tab-content { display:none;}
 
 .tabbed { min-height:420px;}
-
+/*grilla tienda*/
 #productos {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
