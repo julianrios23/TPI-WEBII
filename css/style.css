@@ -225,16 +225,16 @@ button:hover {
 .botones-container {
     display: flex; 
     justify-content: center; 
-    margin-top: 20px;
-	margin-left: 300;
-    margin-right: 300;
+    margin-top: 10px;
+	margin-left: 250;
+    margin-right: 250;
 }
 button2 {
     background-color: green;
     color: white;
     border: none;
     border-radius: 10px;
-    padding: 20px 40px;
+    padding: 25px 45px;
     cursor: pointer;
 	font-size: 20px;
 }
@@ -311,7 +311,3 @@ button2:hover {
     margin-right: 350px;
 }
 /*mensaje prod agregado*/
-
-
-
-

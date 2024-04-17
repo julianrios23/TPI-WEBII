@@ -88,6 +88,7 @@
 		
 		<button2 onclick="comprar()">Comprar</button2>
 		</div>
+		
 
 
 
@@ -125,6 +126,52 @@
 
 <script>
 	
+
+	
+	function comprar() {
+    // Obtiene los productos del carrito desde localStorage
+    const carritoStr = localStorage.getItem('carrito');
+    if (!carritoStr) {
+        console.error('El carrito está vacío');
+        alert('¡El carrito está vacío!');
+        return;
+    }
+
+    // Convierte la cadena del carrito a un objeto JSON
+    const carrito = JSON.parse(carritoStr);
+
+    // Guarda el registro de compra en un archivo JSON
+    guardarRegistroCompra(carrito);
+
+    // Limpia el carrito
+    limpiarCarrito();
+
+    // Muestra un mensaje de confirmación al usuario
+    console.log('Compra registrada exitosamente');
+    alert('¡Gracias por su compra!');
+	 window.location.reload();
+}
+
+function guardarRegistroCompra(registro) {
+    // Convierte el registro a formato JSON
+    const registroJSON = JSON.stringify(registro);
+
+    // Nombre del archivo y ruta donde se guardará el JSON
+    const nombreArchivo = 'registro_compras.json';
+    const rutaArchivo = 'compras/' + nombreArchivo;
+
+    // Guarda el registro en un archivo JSON en la carpeta 'compras'
+    localStorage.setItem(rutaArchivo, registroJSON);
+}
+
+
+function limpiarCarrito() {
+    // Elimina todos los datos del almacenamiento local
+    localStorage.clear();
+}
+
+
+
 </script>
 
 </body>

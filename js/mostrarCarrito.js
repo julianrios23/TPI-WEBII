@@ -79,40 +79,12 @@ document.addEventListener('DOMContentLoaded', function () {
         mostrarCarrito();
     }
 
-    function comprar() {
-        // Obtiene los productos del carrito desde localStorage
-        const carrito = JSON.parse(localStorage.getItem('carrito'));
+   
 
-        // Realiza una solicitud POST al servidor para registrar la compra
-        fetch('http://localhost:3000/comprar', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(carrito) // Envía los productos del carrito al servidor
-        })
-        .then(response => {
-            if (response.ok) {
-                // La compra se registró correctamente
-                console.log('Compra registrada exitosamente');
-                alert('¡Gracias por su compra!');
-            } else {
-                // Hubo un error al registrar la compra
-                console.error('Error al registrar la compra');
-                alert('¡Error al registrar la compra!');
-            }
-        })
-        .catch(error => {
-            console.error('Error de red:', error);
-            alert('¡Error de red al registrar la compra!');
-        });
-    }
-
-    function vaciarCarrito() { 
-        carrito = [];
-        localStorage.removeItem('carrito');
-        mostrarCarrito();
-    }
+    function limpiarCarrito() {
+    // Elimina todos los datos del almacenamiento local
+    localStorage.clear();
+}
 
     mostrarCarrito();
 });

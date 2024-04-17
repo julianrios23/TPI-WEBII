@@ -33,13 +33,13 @@
 				
 
 
-                // Agregar evento mouseover para mostrar la descripción completa
+                // mouseover para mostrar la descripción completa
                 productoElement.querySelector('.info-producto').addEventListener("mouseover", function() {
                     // Reemplazar la descripción corta con la descripción completa
                     this.querySelector('.descripcion-corta').textContent = producto.description;
                 });
 
-                // Agregar evento mouseout para mostrar la descripción corta nuevamente
+                // mouseout para mostrar la descripción corta nuevamente
                 productoElement.querySelector('.info-producto').addEventListener("mouseout", function() {
                     // Reemplazar la descripción completa con la descripción corta
                     this.querySelector('.descripcion-corta').textContent = producto.description.slice(0, 30);
