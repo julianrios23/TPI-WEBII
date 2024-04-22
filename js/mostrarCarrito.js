@@ -78,13 +78,9 @@ document.addEventListener('DOMContentLoaded', function () {
         localStorage.setItem('carrito', JSON.stringify(carrito));
         mostrarCarrito();
     }
-
-   
-
-    function limpiarCarrito() {
-    // Elimina todos los datos del almacenamiento local
-    localStorage.clear();
-}
-
+	
     mostrarCarrito();
+		
 });
+
+

@@ -71,21 +71,22 @@
 
 		<div class="separator"></div>
         <h1 class="titulo">PRODUCTOS DEL CARRITO</h1>
-
+		
+		<div class="boton-container">
+		<button onclick="limpiarCarrito()" class="vaciar-carrito">Vaciar Carrito</button>
+		</div>
 		<div class="grid-container" id="carrito"></div>
 		<div id="carrito-vacio"></div>
+		
 
 		
 		<div class="total-container">
 		<div id="total-carrito"></div>
 		</div>
 
-		
-		<div class="botones-container">
-		
 		<div id="total-carrito"></div>
 		
-		
+		<div class="botones-container">
 		<button2 onclick="comprar()">Comprar</button2>
 		</div>
 		
@@ -125,11 +126,8 @@
 </div>
 
 <script>
-	
-
-	
 	function comprar() {
-    // Obtiene los productos del carrito desde localStorage
+    
     const carritoStr = localStorage.getItem('carrito');
     if (!carritoStr) {
         console.error('El carrito está vacío');
@@ -137,39 +135,60 @@
         return;
     }
 
-    // Convierte la cadena del carrito a un objeto JSON
+    
     const carrito = JSON.parse(carritoStr);
 
-    // Guarda el registro de compra en un archivo JSON
+    
     guardarRegistroCompra(carrito);
 
-    // Limpia el carrito
+    
     limpiarCarrito();
 
-    // Muestra un mensaje de confirmación al usuario
+    
     console.log('Compra registrada exitosamente');
     alert('¡Gracias por su compra!');
-	 window.location.reload();
+	window.location.reload();
 }
 
 function guardarRegistroCompra(registro) {
-    // Convierte el registro a formato JSON
+    
     const registroJSON = JSON.stringify(registro);
 
-    // Nombre del archivo y ruta donde se guardará el JSON
+    
     const nombreArchivo = 'registro_compras.json';
     const rutaArchivo = 'compras/' + nombreArchivo;
 
-    // Guarda el registro en un archivo JSON en la carpeta 'compras'
+   
     localStorage.setItem(rutaArchivo, registroJSON);
 }
 
 
 function limpiarCarrito() {
-    // Elimina todos los datos del almacenamiento local
     localStorage.clear();
+	window.location.reload();
 }
 
+
+const carrito = JSON.parse(localStorage.getItem('carrito'));
+
+
+fetch('http://localhost:3000/registrar-compra', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify(carrito),
+})
+.then(response => {
+  if (response.ok) {
+    console.log('Compra registrada exitosamente');
+  } else {
+    console.error('Error al registrar la compra:', response.status);
+  }
+})
+.catch(error => {
+  console.error('Error al registrar la compra:', error);
+});
 
 
 </script>

@@ -229,6 +229,29 @@ button:hover {
 	margin-left: 250;
     margin-right: 250;
 }
+.boton-container {
+  text-align: right; 
+  margin-top: 10px;
+}
+.vaciar-carrito {
+  animation: strobe 1s infinite; 
+}
+
+@keyframes strobe {
+  0% {
+    color: black; 
+  }
+  50% {
+    color: white;
+  }
+  100% {
+    color: black; 
+  }
+}
+button2 {
+  animation: strobe 1s infinite; 
+}
+
 button2 {
     background-color: green;
     color: white;
@@ -242,6 +265,7 @@ button2 {
 button2:hover {
     background-color: red;
 }
+
 
 /*grid carrito*/
   
