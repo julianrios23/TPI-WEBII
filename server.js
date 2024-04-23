@@ -1,34 +1,21 @@
 const express = require('express');
-const fs = require('fs');
 const app = express();
-const PORT = 3000;
+const path = require('path');
 
-// Middleware para permitir CORS
+// Middleware para configurar los encabezados CORS
 app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-  next();
+    res.setHeader('Access-Control-Allow-Origin', '*'); // Permitir solicitudes desde cualquier origen
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE'); // Permitir métodos específicos
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization'); // Permitir ciertos encabezados
+    next();
 });
 
-// Middleware para procesar el cuerpo de la solicitud como JSON
-app.use(express.json());
-
-// Ruta para manejar el registro de compras
-app.post('/registrar-compra', (req, res) => {
-  // Obtener los datos del carrito del cuerpo de la solicitud
-  const datosCarrito = req.body;
-  
-  // Validar que se hayan recibido los datos del carrito
-  if (!datosCarrito) {
-    res.status(400).send('Datos del carrito no recibidos');
-    return;
-  }
-
-  // Resto del código para manejar el registro de compras...
+// Ruta para servir el archivo ofertas.json
+app.get('/ofertas.json', (req, res) => {
+    res.sendFile(path.join(__dirname, 'ofertas.json'));
 });
 
-// Iniciar el servidor
-app.listen(PORT, () => {
-  console.log(`Servidor Express escuchando en el puerto ${PORT}`);
+// Escucha en el puerto 3000
+app.listen(3000, () => {
+    console.log('Servidor escuchando en el puerto 3000');
 });
