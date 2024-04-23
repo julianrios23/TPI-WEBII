@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const carritoContainer = document.getElementById('carrito');
+    
+	const carritoContainer = document.getElementById('carrito');
     const carritoVacioMsg = document.getElementById('carrito-vacio');
     const totalCarritoElement = document.getElementById('total-carrito');
     let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
@@ -28,11 +29,11 @@ document.addEventListener('DOMContentLoaded', function () {
                     <p>Unidades: ${producto.cantidad}</p>
                     <div class="acciones">
                         <button onclick="agregarUnidad(${index})">
-						<span class="bi bi-plus"></span> Agregar
+						<span class="bi bi-plus"></span> +
 						</button>
 
                         <button onclick="restarUnidad(${index})">
-						<span class="bi bi-dash"></span> Restar
+						<span class="bi bi-dash"></span> -
 						</button>
 
                         <button onclick="eliminarProducto(${index})">

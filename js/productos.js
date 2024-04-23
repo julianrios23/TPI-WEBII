@@ -66,11 +66,13 @@ function renderizarProductos(productos) {
                 <div class="info-producto" 
                     data-full-description="${producto.description}" 
                     data-short-description="${producto.description.slice(0, 30)}">
-                    <h2>${(producto.title)}</h2>
+                    <h2 style="font-weight: bold; font-size: 20px; color:red">${producto.title}</h2>
                     <p class="descripcion-corta">${(producto.description).slice(0, 30)}</p>
-                    <p><strong>Precio Original:</strong> $${precioOriginal}</p>
-                    <p><strong>Precio con Descuento:</strong> $${precioConDescuento}</p>
-                    <p><strong>Descuento:</strong> ${ofertaAplicada}%</p>
+                    <p class="negrita-negra"><strong>Precio:</strong> $${precioOriginal}</p>
+					<p class="negrita-negra"><strong>Descuento:</strong> ${ofertaAplicada}%</p>
+					<p class="negrita-negra"><strong>Precio Final:</strong> $${precioConDescuento}</p>
+                    
+                    
                     <a href="#" class="add-to-cart">
                         <button onclick="agregarAlCarrito(${producto.id}, '${producto.title}', ${precioConDescuento}, '${producto.image}')">Agregar al carrito</button>
                     </a>
@@ -82,9 +84,9 @@ function renderizarProductos(productos) {
                 <div class="info-producto" 
                     data-full-description="${producto.description}" 
                     data-short-description="${producto.description.slice(0, 30)}">
-                    <h2>${(producto.title)}</h2>
+                    <h2 style="font-weight: bold; font-size: 20px">${producto.title}</h2>
                     <p class="descripcion-corta">${(producto.description).slice(0, 30)}</p>
-                    <p><strong>Precio Original:</strong> $${precioOriginal}</p>
+                    <p class="negrita-negra"><strong>Precio:</strong> $${precioOriginal}</p>
                     <a href="#" class="add-to-cart">
                         <button onclick="agregarAlCarrito(${producto.id}, '${producto.title}', ${precioOriginal}, '${producto.image}')">Agregar al carrito</button>
                     </a>

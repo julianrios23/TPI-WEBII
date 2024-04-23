@@ -155,8 +155,11 @@ h3 { font-size:15px; line-height:18px; color:#bcbcbc; text-transform: uppercase;
 }
 .add-to-cart {
     margin-top: 10px;
-	
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
 /* Estilo para la grilla de inicio */
 .grid-container2 {
   display: grid;
@@ -290,15 +293,13 @@ button2:hover {
     border: 3px solid black;
     border-radius: 20px;
     padding: 10px;
-
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
 }
 .producto-card {
     display: flex;
-    
-	justify-content: center;
+    justify-content: center;
     border: 1px solid #ccc;
     border-radius: 20px;
     padding: 30px;
@@ -331,25 +332,30 @@ button2:hover {
     font-size: 30px; 
     font-weight: bold; 
     padding: 20px;
-    border: 3px solid #ccc;
+    border: 5px solid #ccc;
     border-radius: 20px; 
     display: inline-block;
-	margin-top: 20px;
-	margin-left: 375px;
+    margin-top: 20px;
+    margin-left: 380px;
     margin-right: 350px;
+    width: auto; 
+    height: auto;
 }
+
 /*oferta*/
 
 
 .oferta-icono {
-    background-color: black; 
-    color: white; 
-    padding: 15px; 
-    border-radius: 10px; 
-    font-weight: bold; 
-    text-align: center; 
-    animation: destello 1s infinite alternate; 
+    background-color: yellow;
+    color: red;
+    padding: 15px;
+    border-radius: 10px;
+    font-weight: bold;
+    text-align: center;
+    animation: destello 1s infinite alternate;
+    font-size: 20px; 
 }
+
 
 
 @keyframes destello {
@@ -359,6 +365,12 @@ button2:hover {
     100% {
         opacity: 0; 
     }
+}
+/*letras interior contenedor*/
+.negrita-negra {
+    color: black;
+    font-weight: bold;
+	font-size:18px;
 }
 
 
