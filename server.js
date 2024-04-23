@@ -2,6 +2,8 @@ const express = require('express');
 const app = express();
 const path = require('path');
 
+
+
 // Middleware para configurar los encabezados CORS
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*'); // Permitir solicitudes desde cualquier origen

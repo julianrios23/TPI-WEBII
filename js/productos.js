@@ -53,16 +53,16 @@ function renderizarProductos(productos) {
     productos.forEach(producto => {
         const precioOriginal = Math.round(producto.price * 100) / 100; 
         const ofertaAplicada = producto.ofertaAplicada ? producto.ofertaAplicada.descuento : 0;
-        const precioConDescuento = Math.round((precioOriginal * (100 - ofertaAplicada)) / 100 * 100) / 100; 
+        
         const productoElement = document.createElement('div');
-		
         productoElement.classList.add('producto');
+        
         if (ofertaAplicada > 0) {
+            const precioConDescuento = Math.round((precioOriginal * (100 - ofertaAplicada)) / 100 * 100) / 100; 
             productoElement.classList.add('oferta');
             productoElement.innerHTML = `
                 <img src="${producto.image}" alt="${producto.title}" class="imagen-producto">
-                <span class="oferta-icono">OFERTA</span>
-				
+                <span class="oferta-icono">¡O F E R T A!</span>
                 <div class="info-producto" 
                     data-full-description="${producto.description}" 
                     data-short-description="${producto.description.slice(0, 30)}">
@@ -70,6 +70,7 @@ function renderizarProductos(productos) {
                     <p class="descripcion-corta">${(producto.description).slice(0, 30)}</p>
                     <p><strong>Precio Original:</strong> $${precioOriginal}</p>
                     <p><strong>Precio con Descuento:</strong> $${precioConDescuento}</p>
+                    <p><strong>Descuento:</strong> ${ofertaAplicada}%</p>
                     <a href="#" class="add-to-cart">
                         <button onclick="agregarAlCarrito(${producto.id}, '${producto.title}', ${precioConDescuento}, '${producto.image}')">Agregar al carrito</button>
                     </a>
@@ -77,22 +78,20 @@ function renderizarProductos(productos) {
             `;
         } else {
             productoElement.innerHTML = `
-			<img src="${producto.image}" alt="${producto.title}" class="imagen-producto">
-			
-			<div class="info-producto" 
-			data-full-description="${producto.description}" 
-			data-short-description="${producto.description.slice(0, 30)}">
-			<h2>${(producto.title)}</h2>
-			<p class="descripcion-corta">${(producto.description).slice(0, 30)}</p>
-			<p><strong>Precio Original:</strong> $${precioOriginal}</p>
-			<p><strong>Precio con Descuento:</strong> $${precioConDescuento}</p>
-			<a href="#" class="add-to-cart">
-            <button onclick="agregarAlCarrito(${producto.id}, '${producto.title}', ${precioConDescuento}, '${producto.image}')">Agregar al carrito</button>
-        </a>
-    </div>
-`;
-
+                <img src="${producto.image}" alt="${producto.title}" class="imagen-producto">
+                <div class="info-producto" 
+                    data-full-description="${producto.description}" 
+                    data-short-description="${producto.description.slice(0, 30)}">
+                    <h2>${(producto.title)}</h2>
+                    <p class="descripcion-corta">${(producto.description).slice(0, 30)}</p>
+                    <p><strong>Precio Original:</strong> $${precioOriginal}</p>
+                    <a href="#" class="add-to-cart">
+                        <button onclick="agregarAlCarrito(${producto.id}, '${producto.title}', ${precioOriginal}, '${producto.image}')">Agregar al carrito</button>
+                    </a>
+                </div>
+            `;
         }
+        
         productosDiv.appendChild(productoElement);
 
         // mouseover para mostrar la descripción completa
@@ -106,7 +105,4 @@ function renderizarProductos(productos) {
         });
     });
 }
-
-
-
 

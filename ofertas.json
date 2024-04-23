@@ -2,28 +2,36 @@
     "ofertas": [
       
         {
-            "id": 2,
-            "descuento": 30
+            "id": 1,
+            "descuento": 15
         },
         {
-            "id": 5,
-            "descuento": 40
+            "id": 3,
+            "descuento": 25
         },
         {
-            "id": 10,
-            "descuento": 40
+            "id": 6,
+            "descuento": 25
         },
         {
+            "id": 11,
+            "descuento": 18
+        },
+		{
             "id": 13,
-            "descuento": 30
+            "descuento": 35
         },
         {
-            "id": 14,
-            "descuento": 30
+            "id": 16,
+            "descuento": 10
         },
         {
             "id": 17,
-            "descuento": 30
+            "descuento": 22
+        },
+		{
+            "id": 20,
+            "descuento": 15
         }
     ]
 }
