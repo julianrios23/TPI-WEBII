@@ -45,13 +45,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
             carritoContainer.appendChild(productoCard);
 
-            // Calcular el costo total del producto y agregarlo al total del carrito
+            // costo total del producto
             totalCarrito += producto.price * producto.cantidad;
         });
 
-        // Mostrar el total del carrito
+        // total del carrito
         if (totalCarrito === 0) {
-            totalCarritoElement.textContent = 'Total: $0.00'; // Establecer texto a "$0.00" cuando el carrito esté vacío
+            totalCarritoElement.textContent = 'Total: $0.00'; 
         } else {
             totalCarritoElement.textContent = `Total: $${totalCarrito.toFixed(2)}`;
         }
@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
     window.restarUnidad = function (index) {
-        // Verificar que la cantidad de unidades sea mayor que 1 antes de restar
+       
         if (carrito[index].cantidad > 1) {
             carrito[index].cantidad--;
             actualizarCarrito();

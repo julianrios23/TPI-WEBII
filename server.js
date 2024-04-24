@@ -2,18 +2,18 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const translate = require('node-google-translate-skidz');
-const axios = require('axios'); // Agrega axios para hacer solicitudes HTTP
-const port = 3000; // Cambia el puerto a 3000
+const axios = require('axios'); 
+const port = 3000; 
 
-// Middleware para configurar los encabezados CORS
+//  CORS
 app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', '*'); // Permitir solicitudes desde cualquier origen
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE'); // Permitir métodos específicos
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization'); // Permitir ciertos encabezados
+    res.setHeader('Access-Control-Allow-Origin', '*'); 
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE'); 
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
     next();
 });
 
-// Ruta para servir el archivo ofertas.json
+// Ruta ofertas.json
 app.get('/ofertas.json', (req, res) => {
     res.sendFile(path.join(__dirname, 'ofertas.json'));
 });
@@ -27,7 +27,7 @@ async function dynamicTranslate(textToTranslate) {
     return translation.translation;
 }
 
-// Endpoint para obtener productos traducidos desde la API
+// Endpoint 
 app.get('/productos-traducidos', async (req, res) => {
     const apiUrl = 'https://fakestoreapi.com/products';
 
@@ -40,18 +40,18 @@ app.get('/productos-traducidos', async (req, res) => {
 
         const productos = response.data;
 
-        // Traducir títulos y descripciones al español
+        
         for (let producto of productos) {
-            // Traduce el título
+           
             producto.title = await dynamicTranslate(producto.title);
 
-            // Traduce la descripción (si existe)
+           
             if (producto.description) {
                 producto.description = await dynamicTranslate(producto.description);
             }
         }
 
-        res.json(productos); // Devuelve los productos traducidos como respuesta JSON
+        res.json(productos); 
     } catch (error) {
         console.error('Error al obtener los productos:', error.message);
         res.status(500).send('Error al obtener los productos desde la API.');
@@ -59,7 +59,7 @@ app.get('/productos-traducidos', async (req, res) => {
 });
 
 
-// Inicia el servidor y escucha en el puerto especificado
+
 app.listen(port, () => {
     console.log(`Servidor escuchando muy atentamente en el puerto:${port}`);
 });

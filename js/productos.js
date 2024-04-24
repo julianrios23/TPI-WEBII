@@ -6,9 +6,9 @@ fetch('http://localhost:3000/ofertas.json')
         return response.json();
     })
     .then(ofertasData => {
-        const ofertas = ofertasData.ofertas; // Renombrar data a ofertasData para mayor claridad
+        const ofertas = ofertasData.ofertas; 
         
-        // Fetch de productos desde la API
+        
         fetch('http://localhost:3000/productos-traducidos')
             .then(response => {
                 if (!response.ok) {
@@ -17,12 +17,12 @@ fetch('http://localhost:3000/ofertas.json')
                 return response.json();
             })
             .then(productosData => {
-                const productos = productosData; // No es necesario renombrar los datos de productos
+                const productos = productosData;
                 
-                // Aplicar ofertas de descuento a los productos
+               
                 aplicarOfertasDescuento(productos, ofertas);
                 
-                // Renderizar los productos
+               
                 renderizarProductos(productos);
             })
             .catch(error => {
