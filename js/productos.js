@@ -1,4 +1,3 @@
-
 fetch('http://localhost:3000/ofertas.json')
     .then(response => {
         if (!response.ok) {
@@ -6,21 +5,25 @@ fetch('http://localhost:3000/ofertas.json')
         }
         return response.json();
     })
-    .then(data => {
-        const ofertas = data.ofertas; 
+    .then(ofertasData => {
+        const ofertas = ofertasData.ofertas; // Renombrar data a ofertasData para mayor claridad
         
-        fetch('https://fakestoreapi.com/products')
+        // Fetch de productos desde la API
+        fetch('http://localhost:3000/productos-traducidos')
             .then(response => {
                 if (!response.ok) {
                     throw new Error('La respuesta de la red no fue exitosa');
                 }
                 return response.json();
             })
-            .then(data => {
+            .then(productosData => {
+                const productos = productosData; // No es necesario renombrar los datos de productos
                 
-                aplicarOfertasDescuento(data, ofertas);
+                // Aplicar ofertas de descuento a los productos
+                aplicarOfertasDescuento(productos, ofertas);
                 
-                renderizarProductos(data);
+                // Renderizar los productos
+                renderizarProductos(productos);
             })
             .catch(error => {
                 console.error('Error al obtener los productos:', error);
@@ -30,23 +33,16 @@ fetch('http://localhost:3000/ofertas.json')
         console.error('Error al obtener las ofertas:', error);
     });
 
-
 function aplicarOfertasDescuento(productos, ofertas) {
     productos.forEach(producto => {
-        
         const oferta = ofertas.find(oferta => oferta.id === producto.id);
         if (oferta) {
-            
             const precioConDescuento = producto.price * (1 - oferta.descuento / 100);
-            
             producto.price = precioConDescuento;
-            
             producto.ofertaAplicada = oferta;
         }
     });
 }
-
-//renderizo para mostarr
 
 function renderizarProductos(productos) {
     const productosDiv = document.getElementById('productos');
@@ -107,4 +103,3 @@ function renderizarProductos(productos) {
         });
     });
 }
-
