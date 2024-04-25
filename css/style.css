@@ -47,15 +47,10 @@ h3 { font-size:15px; line-height:18px; color:#bcbcbc; text-transform: uppercase;
 #top { height:479px; background:#000; }
 #header { height:61px; }
 
-#slider { width:1050; height:418px; position:relative; overflow:hidden; }
-#slider-holder { width:1050; height:418px; position:relative; overflow:hidden; }
-#slider-holder ul{ width:1050; height:418px; position:relative; overflow:hidden; list-style-type: none;}
-#slider-holder .jcarousel-clip {
-  width: 100%; /* Ajustar al ancho del contenedor padre */
-  height: 100%; /* Ajustar al alto del contenedor padre */
-  position: relative;
-  overflow: hidden;
-}
+#slider { width:980px; height:418px; position:relative; overflow:hidden; }
+#slider-holder { width:980px; height:418px; position:relative; overflow:hidden; }
+#slider-holder ul{ width:980px; height:418px; position:relative; overflow:hidden; list-style-type: none;}
+#slider-holder .jcarousel-clip{ width:980px; height:418px; position:relative; overflow:hidden; }
 
 #slider-holder ul li{ width:980px; height:418px; position:relative; overflow:hidden; float:left; display:inline; }
 #slider-nav a{ position:absolute; top:180px; font-size:0; line-height:0; z-index:2; width:58px; height:58px; text-indent: -4000px;}
@@ -117,9 +112,6 @@ h3 { font-size:15px; line-height:18px; color:#bcbcbc; text-transform: uppercase;
   margin-right: auto;
   width: 80%; 
 }
-
-
-
 
 #footer { border-top:dashed 1px #cfcfcf; margin-top:20px; padding:10px 0; color:#8e8e8e;}
 #footer a{ color:#8e8e8e; }
